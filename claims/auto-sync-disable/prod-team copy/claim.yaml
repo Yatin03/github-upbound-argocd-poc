@@ -1,0 +1,11 @@
+---
+apiVersion: dmp.fico.com/v1alpha1
+kind: DMPEC2
+metadata:
+  name: provision-ec2-instance54
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  parameters:
+    amiId: ami-07321d250855f67565hbh
+    instanceType: t2.micro
