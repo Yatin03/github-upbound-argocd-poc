@@ -1,0 +1,32 @@
+apiVersion: dmp.fico.com/v1alpha1
+kind: DMPEC2
+metadata:
+  name: provision-ec2-instance
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  parameters:
+    amiId: ami-07321d250855f25bb
+    instanceType: t2.micro
+---
+apiVersion: dmp.fico.com/v1alpha1
+kind: DMPEC2
+metadata:
+  name: provision-ec2-instance2
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  parameters:
+    amiId: ami-07321d250855f67565hbh
+    instanceType: t2.micro
+---
+apiVersion: dmp.fico.com/v1alpha1
+kind: DMPEC2
+metadata:
+  name: provision-ec2-instance3
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  parameters:
+    amiId: ami-07321d250855f25bb
+    instanceType: t2.micro
