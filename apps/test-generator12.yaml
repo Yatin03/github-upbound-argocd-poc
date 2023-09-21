@@ -10,7 +10,7 @@ spec:
         repoURL: 'https://github.com/Yatin03/github-upbound-argocd-poc.git'
         revision: HEAD
         directories:
-          - path: github-upbound-argocd-poc/claims/auto-sync-disable/*
+          - path: claims/auto-sync-disable/*
   template:
     metadata:
       name: '{{.path.basename}}-{{.clusterName}}'
