@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: test-generators
+spec:
+  goTemplate: true
+  goTemplateOptions: [ "missingkey=error" ]
+  generators:
+    - git:
+        repoURL: 'https://github.com/Yatin03/github-upbound-argocd-poc.git'
+        revision: HEAD
+        directories:
+          - path: github-upbound-argocd-poc/claims/auto-sync-disable/*
+  template:
+    metadata:
+      name: '{{.path.basename}}-{{.clusterName}}'
+    spec:
+      destination:
+        namespace: '{{.path.basename}}-{{.clusterName}}'
+        name: dev
+      project: default
+      source:
+        repoURL: 'https://github.com/Yatin03/github-upbound-argocd-poc.git'
+        path: '{{.path.path}}'
+        targetRevision: HEAD
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
