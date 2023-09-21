@@ -13,10 +13,10 @@ spec:
           - path: claims/auto-sync-disable/*
   template:
     metadata:
-      name: '{{.path.basename}}-{{.clusterName}}'
+      name: '{{.path.basename}}-dev'
     spec:
       destination:
-        namespace: '{{.path.basename}}-{{.clusterName}}'
+        namespace: '{{.path.basename}}-dev'
         name: dev
       project: default
       source:
